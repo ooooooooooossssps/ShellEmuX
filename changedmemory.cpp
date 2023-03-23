@@ -61,9 +61,11 @@ ChangedMemory::ChangedMemory(char* filename, int emulator_type)
 	{
 		case 1: emulator = new Emulator_LibEmu; 
 			break;
-		case 2: emulator = new Emulator_Qemu;
+		/*
+        case 2: emulator = new Emulator_Qemu;
 			break;
 		default:;
+        */
 	}
 	emulator -> bind(reader);
 	shellcode = NULL;
@@ -80,9 +82,11 @@ ChangedMemory::ChangedMemory(unsigned char* data, int datasize, int emulator_typ
 	{
 		case 1: emulator = new Emulator_LibEmu; 
 			break;
-		case 2: emulator = new Emulator_Qemu;
+		/*
+        case 2: emulator = new Emulator_Qemu;
 			break;
 		default:;
+        */
 	}
 	emulator -> bind(reader);
 	shellcode = NULL;
