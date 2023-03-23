@@ -51,6 +51,9 @@ analyzerCFG.o: analyzerCFG.cpp analyzerCFG.h analyzer.h block.h instructionInfo.
 analyzerTrace.o: analyzerTrace.cpp analyzerTrace.h analyzer.h instructionInfo.h compareUtils.h
 	$(CXX) $(FLAGS) -c analyzerTrace.cpp
 
+timer.o: timer.cpp timer.h
+	$(CXX) $(FLAGS) -c timer.cpp
+
 compareUtils.o: compareUtils.cpp compareUtils.h
 	$(CXX) $(FLAGS) -c compareUtils.cpp
 
@@ -75,8 +78,9 @@ main.o: main.cpp detectSimilar.h
 build/lib/libdetectsimilar.so: $(OBJECTS_LIB)
 	mkdir -p build/lib
 	$(CXX) $(FLAGS) -shared -o $@ $(OBJECTS_LIB) $(FLAGS_LIB) -lBeaEngine -lemu -lfinddecryptor
-$(TARGET): main.o lib
-	$(CXX) $(FLAGS) -o $@ main.o $(FLAGS_LIB) -lfinddecryptor -ldetectsimilar \
+$(TARGET): main.o timer.o lib
+$(CXX) $(FLAGS) -o $@ main.o timer.o -lfinddecryptor -ldetectsimilar \
+
 		-L$(CURDIR)/build/lib -Wl,-rpath -Wl,$(CURDIR)/build/lib
 
 
