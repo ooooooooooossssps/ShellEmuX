@@ -41,7 +41,9 @@ BlockInfo::~BlockInfo()
 	{
 		(*it)->_from.erase(this);
 	}
-	_normalizer->forget(this);
+	_to.clear();
+    _from.clear();
+    _normalizer->forget(this);
 	_normalizer->normalize();
 	if (_first_block)
 	{
@@ -254,6 +256,7 @@ void BlockInfo::addBranch(UIntPtr addr, UIntPtr addr_from)
 
 void BlockInfo::process()
 {
+    //cerr << "Processing " << (void*) this << endl;
 	assert(_subBlocks.size() == 1);
 	assert(_subBlocks[0].size == 0);
 
