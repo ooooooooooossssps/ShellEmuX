@@ -1,0 +1,39 @@
+### Commented entries have reasonable defaults.
+### Uncomment to edit them.
+Section: misc
+Priority: optional
+Homepage: https://gitorious.org/shellcode-detection/shellemux
+Standards-Version: 3.6.2
+
+Package: shellemux
+Version: 0.1.0
+Maintainer: Anastasiya Shcherbinina <nastya_jane@lvk.cs.msu.su>
+# Pre-Depends: <comma-separated list of packages>
+Depends: finddecryptor
+# Recommends: <comma-separated list of packages>
+# Suggests: <comma-separated list of packages>
+# Provides: <comma-separated list of packages>
+# Replaces: <comma-separated list of packages>
+Architecture: any
+# Copyright: <copyright file; defaults to GPL2>
+# Changelog: <changelog file; defaults to a generic changelog>
+# Readme: <README.Debian file; defaults to a generic one>
+# Extra-Files: <comma-separated list of additional files for the doc directory>
+Files: analyzer /usr/bin/shellemux
+  build/lib/libdetectsimilar.so /usr/lib/libdetectsimilar.so
+  analyzerCFG.h /usr/include/shellemux/analyzerCFG.h
+  analyzerDiff.h /usr/include/shellemux/analyzerDiff.h
+  analyzer.h /usr/include/shellemux/analyzer.h
+  analyzerNgram.h /usr/include/shellemux/analyzerNgram.h
+  analyzerTrace.h /usr/include/shellemux/analyzerTrace.h
+  block.h /usr/include/shellemux/block.h
+  changedmemory.h /usr/include/shellemux/changedmemory.h
+  compareUtils.h /usr/include/shellemux/compareUtils.h
+  detectSimilar.h /usr/include/shellemux/detectSimilar.h
+  instructionInfo.h /usr/include/shellemux/instructionInfo.h
+  normalizer.h /usr/include/shellemux/normalizer.h
+
+Description: Similarity-based polymorphic shellcode detector.
+ Addresses the problem of detection of polymorphic and metamorphic shellcode in the network traffic.
+ Input: dataset of known shellcodes and bytes sequence to analyze.
+ Output: information of attack detected.
